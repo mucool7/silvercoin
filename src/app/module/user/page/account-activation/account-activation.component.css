@@ -1,0 +1,71 @@
+
+.heading-activate{
+  padding: 8px;
+  background-color: #f0b986;
+  border-radius: 4px;
+}
+.body{
+  padding: 20px 0px;
+}
+
+.personal-detail{
+  padding: 10px 0px;
+}
+.personal-detail h4{
+  padding-bottom: 6px;
+  border-bottom: 1px solid #A2AABD
+}
+
+.upi{
+  padding: 10px 0px;
+
+}
+.upi h4{
+  padding-bottom: 6px;
+  border-bottom: 1px solid #A2AABD
+}
+
+.bank-detail{
+  padding: 10px 0px;
+
+}
+.bank-detail h4{
+  padding-bottom: 6px;
+  border-bottom: 1px solid #A2AABD
+}
+
+.upi-types{
+  padding: 8px 4px;
+  /* display: flex; */
+  padding-bottom: 12px;
+
+}
+.upi-types .upi-merchant{
+  /* width: 100px;
+  text-align: center; */
+  padding: 8px;
+  /* border: 1px solid #cfcfcf; */
+  margin-left: 4px;
+  font-size: 13px;
+}
+
+
+/* .form-control div button{
+  flex:0.1;
+  margin-left: 4px;
+
+}
+.input-control{
+  flex:0.9
+}
+.input-container{
+  display: flex; */
+/* } */
+
+.pending-msg{
+  color: orange;
+  font-weight: normal;
+}
+button{
+  margin-top: 20px;
+}

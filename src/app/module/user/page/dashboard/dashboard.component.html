@@ -1,0 +1,318 @@
+
+<div class="page">
+  <div class="container">
+
+    <!-- <div class="alert red">
+      Please activate your account to start using the app.
+      <p>
+        <br>
+        <button [routerLink]="['../activate']" >Activate</button>
+
+      </p>
+    </div> -->
+
+    <div class="container-flex" *ngIf="false">
+
+
+      <div class="flex-1">
+        <div class="tile">
+          <div class="head">
+            Sell Per Coin <small><b>at</b></small>
+          </div>
+          <div class="body">
+           <div class="price">
+            ₹ 00.001
+           </div>
+          </div>
+          <div class="head">
+            <button class="primary-btn">Sell Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1">
+        <div class="tile">
+          <div class="head">
+            Buy Per Coin <small><b>at</b></small>
+          </div>
+          <div class="body">
+           <div class="price">
+            ₹ 00.003
+           </div>
+          </div>
+          <div class="head">
+            <button class="secondary-btn" (click)="onBuyCoin()">Buy Now</button>
+          </div>
+
+        </div>
+      </div>
+      <!-- <div class="flex-100  ">
+        <div class="tile">
+          <div class="head  align-left">
+            Your Holdings
+          </div>
+          <div class="body  align-left">
+            <div>
+               <b>234.23</b> coins worth <b>₹ 459.87</b>
+            </div>
+
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="msg" style="text-align: left;padding-bottom: 20px;display: none;">
+      Hi, {{userData.Name}}( {{userData.Email}} )
+    </div>
+
+    <div class="msg" style="padding-bottom: 20px;display: none;">
+      <span style="font-weight: bold;">Welcome to the MMM Silver Coin.</span>
+      <br>
+    <div style="margin-top: 4px;">
+      First time in India.
+    </div>
+    </div>
+    <!-- <hr> -->
+
+  <div >
+    <div style="padding: 12px;background-color: #5595d1;color: #fff;border-radius: 4px;margin: 8px;display: none;">
+      <div><h1>SELL COIN</h1></div>
+      <div style="padding: 14px;font-size: 32px;">
+        ₹ 01.163<span style="font-size: 13px;">/ Coin</span>
+      </div>
+      <div style="font-size: 12px;">Amout will update every Saturday.</div>
+
+  </div>
+  <div style="padding: 12px;background-color: #5a5cd1;box-shadow: 0px 1px 5px #5a5cd1aa;;color: #fff;border-radius: 4px;margin: 8px;">
+    <div><h1 style="color: #efefef;">BUY COIN</h1></div>
+    <div style="padding: 14px;font-size: 24px;">
+      ₹ {{fillValues?.CoinDetail?.PricePerCoin.toFixed(2)}}<span style="font-size: 13px;">/ Coin</span>
+      <button style="display: inline;width: 80px;float: right;" (click)="onBuyCoin()">Buy Now</button>
+    </div>
+    <div style="font-size: 12px;">Amout will update every day.</div>
+
+  </div>
+  <div class="section">
+    Requests
+  </div>
+  <div class="payment-request">
+    <span class="head">Payments Pending </span>
+    <span matBadge="{{fillValues?.PaymentRequestCount}}" matBadgeColor="warn" matBadgeOverlap="true" class="badge"></span>
+    <span class="link" [routerLink]="['../paymentrequest']" *ngIf="fillValues?.PaymentRequestCount>0" >View</span>
+  </div>
+  <div class="section">
+    Income Detail
+  </div>
+  <div class="user-info">
+
+    <div class="utile">
+
+      <div class="utile-row">
+        <div class="icon skyblue">
+          <i class="material-icons"  >
+            account_balance_wallet
+          </i>
+        </div>
+        <div class="content">
+           <div class="header">
+            Total
+           </div>
+           <div class="caption">
+             {{fillValues?.IncomeDetail.TotalCoin.toFixed(8)}}
+           </div>
+        </div>
+        <div class="val">
+          <div style="white-space:nowrap ;">
+            ₹ {{fillValues?.IncomeDetail.TotalAmount.toFixed(2)}}
+
+          </div>
+        </div>
+        <!-- <div style="padding: 10px 0px;font-size: 16px;" >1.3458936</div> -->
+      </div>
+
+    </div>
+    <div class="utile">
+
+      <div class="utile-row">
+        <div class="icon brown">
+          <i class="material-icons"  >
+            monetization_on
+          </i>
+        </div>
+        <div class="content">
+           <div class="header">
+            Direct
+           </div>
+           <div class="caption">
+            {{fillValues?.IncomeDetail.DirectCoin.toFixed(8)}}
+
+           </div>
+        </div>
+        <div class="val">
+          <div style="white-space:nowrap ;">
+            ₹ {{fillValues?.IncomeDetail.DirectAmount.toFixed(2)}}
+
+
+          </div>
+        </div>
+        <!-- <div style="padding: 10px 0px;font-size: 16px;" >1.3458936</div> -->
+      </div>
+
+    </div>
+    <div class="utile">
+
+      <div class="utile-row">
+        <div class="icon yellow">
+          <i class="material-icons"  >
+            merge_type
+          </i>
+        </div>
+        <div class="content">
+           <div class="header">
+            Level Income
+           </div>
+           <div class="caption" >
+            {{fillValues?.IncomeDetail.LevelCoin.toFixed(8)}}
+
+           </div>
+        </div>
+        <div class="val">
+          <div style="white-space:nowrap ;">
+            ₹ {{fillValues?.IncomeDetail.LevelAmount.toFixed(2)}}
+
+
+          </div>
+        </div>
+        <!-- <div style="padding: 10px 0px;font-size: 16px;" >1.3458936</div> -->
+      </div>
+
+    </div>
+    <div class="utile">
+
+      <div class="utile-row">
+        <div class="icon green">
+
+          <i class="material-icons" style="vertical-align: middle;font-size: 32px;color: #fff;" >
+            supervisor_account
+          </i>
+        </div>
+        <div class="content">
+           <div class="header">
+            Direct Count
+           </div>
+           <div class="caption">
+            {{fillValues?.IncomeDetail.LevelCount}}
+
+           </div>
+        </div>
+        <div class="val">
+          <div>
+
+          </div>
+        </div>
+        <!-- <div style="padding: 10px 0px;font-size: 16px;" >1.3458936</div> -->
+      </div>
+
+    </div>
+  </div>
+  <div class="section">
+    Recent Orders
+  </div>
+  <!-- <div class="recent-order">
+      <div class="orders">
+        <div class="type">Buy</div>
+        <div class="content">
+          ₹ 5000 /-
+        </div>
+      </div>
+  </div> -->
+  </div>
+    <div class="transactions">
+
+      <div style="text-align: center;padding: 10px;" *ngIf="!fillValues?.RecentOrders || fillValues.RecentOrders.length ==0">
+         No Orders.
+      </div>
+      <table *ngIf="fillValues?.RecentOrders.length>0">
+        <thead>
+          <tr >
+            <th>Type</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <!-- <th>Coins</th> -->
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of fillValues?.RecentOrders" >
+            <td>
+              <div class="buy-pill">
+                {{order.Type}}
+              </div>
+            </td>
+            <td>{{order.Date}}</td>
+            <td>{{order.Amount}}</td>
+            <!-- <td>{{order.Qty}}</td> -->
+            <td >
+              <div [ngClass]="'order-status-'+order.StatusNo" style="font-size: 10px;font-weight: bold;text-align: center;border-radius: 4px;padding: 6px 4px;">
+                {{order.Status}}
+              </div>
+             </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <!-- <div class="account-detail" style="display: none;">
+      <h3>Your Holdings</h3>
+      <div class="container-flex">
+        <div class="flex-1">
+          <div class="tile">
+
+            <div class="body">
+             <div class="price">
+              2.5K
+             </div>
+            </div>
+            <div class="head">
+              Your Coin
+            </div>
+
+
+          </div>
+        </div>
+        <div class="flex-1">
+          <div class="tile">
+
+            <div class="body">
+             <div class="price">
+              ₹ 200.00
+             </div>
+            </div>
+            <div class="head">
+              Coin Value
+           </div>
+
+
+          </div>
+        </div>
+        <div class="flex-1">
+          <div class="tile">
+
+            <div class="body">
+             <div class="price">
+              ₹ 10.45K
+             </div>
+            </div>
+
+            <div class="head">
+              Money Earned
+           </div>
+          </div>
+        </div>
+
+      </div>
+    </div> -->
+  </div>
+</div>
+
+
+

@@ -1,0 +1,50 @@
+
+.coin-value{
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff6600;
+  border-bottom: 1px solid #dfdfdf;
+  padding-bottom: 16px;
+  clear: both;
+}
+
+.main-area{
+  padding: 10px 0px;
+  font-size: 16px;
+}
+
+.main-area .options{
+  padding: 10px 0px;
+}
+
+.main-area .info{
+  padding: 10px 0px;
+}
+
+.main-area .info .detail{
+  font-size: 16px;
+  padding: 2px 0px;
+}
+
+.main-area .error{
+
+  padding: 10px 0px;
+  color: red;
+  text-align: center;
+  font-size: 13px;
+}
+
+.options select{
+  padding: 10px;
+}
+td{
+  padding: 1px;
+}
+td:nth-child(3){
+  font-weight: bold;
+}
+.num{
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+}

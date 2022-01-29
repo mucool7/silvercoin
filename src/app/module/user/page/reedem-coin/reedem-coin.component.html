@@ -1,0 +1,52 @@
+<div class="page-transact">
+
+  <div class="page-header">
+    Reedem Coin
+  </div>
+  <div class="page-content">
+
+   <div class="coin-value">
+     1 Coin = ₹ {{coinReedemDetail?.CoinPrice.toFixed(2)}}
+     <div style="color: #404040;font-size: 12px;font-weight: normal;padding-top: 3px;">coin can be reedem in multiple of <b>₹{{coinReedemDetail?.MinimumReedemableAmount}}</b> amount only.</div>
+   </div>
+   <div class="main-area">
+
+    <div class="info">
+      <table>
+        <tr>
+          <td>Total Coin </td>
+          <td> : </td>
+          <td> {{coinReedemDetail?.UserCoins.toFixed(8)}} </td>
+        </tr>
+        <tr>
+          <td>Balance </td>
+          <td> : </td>
+          <td> ₹{{coinReedemDetail?.TotalBalance.toFixed(2)}} </td>
+        </tr>
+      </table>
+      <!-- <div class="detail">
+        Total Coin : {{coinReedemDetail?.UserCoins.toFixed(8)}}
+      </div>
+      <div class="detail">
+       Balance &nbsp; &nbsp;: {{coinReedemDetail?.TotalBalance.toFixed(2)}}
+     </div> -->
+    </div>
+
+     <div class="options">
+      <select class="input-control" (change)="onSelect($event)">
+        <option disabled selected>Select</option>
+        <option *ngFor="let option of coinReedemDetail?.ReedemableOptions" value="{{option.Value}}" >₹{{option.Name}} [{{option.Value}}]</option>
+        </select>
+     </div>
+     <div class="error" *ngIf="!(coinReedemDetail?.ReedemableOptions.length>0)">
+         Unable to Reedem, You don't have enough balance.
+     </div>
+     <div class="num">
+      {{num}}
+     </div>
+     <button style=""  (click)="onReedemCoin()" [disabled]="!num" mat-raised-button color="primary" >Reedem</button>
+
+   </div>
+
+  </div>
+</div>

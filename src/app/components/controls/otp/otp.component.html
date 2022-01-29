@@ -1,0 +1,47 @@
+
+<div>
+  <!-- <div [formGroup]="_form" #form1  (ngSubmit)="onSendOTP()"> -->
+  <div class="alert green" style="margin-top: 20px;" *ngIf="isOTPCallStarted && !errorMsg && !val">
+    <p>An OTP has been sent to the {{lable}}, Please check.</p>
+  </div>
+  <div class="alert red" style="margin-top: 20px;" *ngIf="errorMsg">
+    <p>{{errorMsg}}</p>
+  </div>
+    <div class="form-control">
+      <div class="lable-control">
+        <label  >{{lable}}</label>
+      </div>
+      <div>
+        <input class="input-control" [placeholder]="placeholder" [disabled]="disableInputField" [(ngModel)]="inputField"  type="{{isPhone?'number':'email'}}" />
+      </div>
+
+    </div>
+    <div class="form-control " style="width: 40%;margin: 0 auto;" *ngIf="!val">
+      <a href="javascript:void(0)"[disabled]="!inputField || isOTPCallStarted" mat-stroked-button color="primary" (click)="triggerOnSendOTP()">Send OTP</a>
+    </div>
+    <div class="alert green" style="margin-top: 4px;" *ngIf="val">
+      <p>{{lable}} has been successfully verified.</p>
+    </div>
+
+  </div>
+
+  <!-- <form [formGroup]="_otpForm" #otpForm (ngSubmit)="onValidateOTP()" class="otp-form" *ngIf="isOTPCallStarted && !val"> -->
+    <div *ngIf="isOTPCallStarted && !val" class="otp-form">
+  <div class="form-control">
+    <div class="lable-control">
+      <label  >Please Enter 6 Digit OTP</label>
+    </div>
+    <div>
+      <input class="input-control" [(ngModel)]="otpField"  type="number" style="letter-spacing: 16px;padding: 12px;font-size: 16px;color:#000" />
+    </div>
+  </div>
+  <div class="form-control " style="width: 50%;margin: 0 auto;">
+    <a color="primary"  [disabled]="!otpField " mat-stroked-button color="primary" (click)="triggerOnValidateOTP()">Verify OTP</a>
+  </div>
+
+
+  <!-- <p>An OTP will be sent to this email id.</p> -->
+
+</div>
+
+

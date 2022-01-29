@@ -1,0 +1,101 @@
+
+<div class="page">
+  <div class="container">
+
+    <div class="card-header">
+
+    </div>
+    <div class="card-logo">
+
+    </div>
+    <div class="card-body">
+      <div class="card-name">
+  {{login.Name}}
+<div style="font-weight: normal;color:green;padding: 6px;font-weight: bold;padding-bottom: 4px;">
+  Active
+</div>
+      </div>
+      <div class="card-detail">
+        <div class="item">
+          <i class="material-icons" style="vertical-align: middle;font-size: 20px;margin-right: 10px;">email</i>{{accountDetail?.KYCDetail?.Email}}
+        </div>
+        <div class="item">
+          <i class="material-icons" style="vertical-align: middle;font-size: 20px;margin-right: 10px;">phone</i>{{accountDetail?.KYCDetail?.PhoneNo}}
+        </div>
+        <div class="item">
+          <i class="material-icons" style="vertical-align: middle;font-size: 20px;margin-right: 10px;">lock</i>{{accountDetail?.PIN}} <span style="font-weight: normal;">(PIN)</span>
+        </div>
+        <br>
+        <br>
+        <hr>
+
+
+      </div>
+      <div style="padding:0px  22px;">
+        <div class="collapsible">
+          <div class="c-header">Bank Detail</div>
+          <div class="c-body">
+            <div style="padding: 6px;">
+              <div style="font-weight: bold;padding-bottom: 4px;">
+                Bank
+              </div>
+              <div>
+                {{accountDetail?.BankDetails[0].BankName}}
+              </div>
+            </div>
+           <div style="padding: 6px;">
+            <div style="font-weight: bold;padding-bottom: 4px;">
+              Account Number
+            </div>
+            <div>
+              {{accountDetail?.BankDetails[0].AccountNumber}}
+            </div>
+           </div>
+         <div style="padding: 6px;">
+          <div style="font-weight: bold;padding-bottom: 4px;">
+            IFSC
+          </div>
+          <div>
+            {{accountDetail?.BankDetails[0].Ifccode}}
+          </div>
+         </div>
+        <div style="padding: 6px;">
+          <div style="font-weight: bold;padding-bottom: 4px;">
+            Account Holder
+          </div>
+          <div>
+            {{accountDetail?.BankDetails[0].AccountHolderName}}
+          </div>
+        </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <div class="c-header">UPI Detail</div>
+          <div class="c-body">
+            <div style="padding: 6px;">
+              <div style="font-weight: bold;padding-bottom: 4px;">
+                UPI Account
+              </div>
+              <div>
+                {{accountDetail?.BankDetails[0].Ifccode}}
+              </div>
+             </div>
+             <div style="padding: 6px;">
+              <div style="font-weight: bold;padding-bottom: 4px;padding-bottom: 4px;">
+                UPI No.
+              </div>
+              <div>
+                {{accountDetail?.UPIDetail.Upiid}}
+              </div>
+             </div>
+          </div>
+        </div>
+        <!-- <div class="collapsible">
+          <div class="c-header">KYC Detail</div>
+        </div> -->
+      </div>
+    </div>
+
+  </div>
+</div>
+

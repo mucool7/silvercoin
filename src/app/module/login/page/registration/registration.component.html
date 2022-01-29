@@ -1,0 +1,202 @@
+<div class="page">
+
+  <div class="back" (click)="back()" *ngIf="form !== 'form1'">
+   <span style="vertical-align: middle;font-size: 16px;">
+    <i class="material-icons" style="vertical-align: middle;font-size: 20px;">arrow_back</i> <span style="vertical-align: middle;font-weight: bold;"> Back</span>
+   </span>
+  </div>
+
+  <div class="heading">
+    Account Registration
+  </div>
+  <div class="sub-head">
+   Please enter the below detail.
+  </div>
+  <div class="form">
+    <form class="form-1" *ngIf="form =='form1'"(ngSubmit)="submitForm1($event)" [formGroup]="form1" ngxValidator>
+
+      <div class="form-control">
+        <div class="lable-control">
+          <label  >Full Name <small>( as per PAN card)</small> </label>
+        </div>
+        <div>
+          <input class="input-control" formControlName="name" placeholder="Name" type="text" />
+        </div>
+      </div>
+
+
+      <div class="form-control">
+        <div class="lable-control">
+          <label  >Email ID</label>
+        </div>
+        <div>
+          <input class="input-control" formControlName="email" placeholder="Email" type="text" />
+        </div>
+        <div class="_ErX" *ngIf="emailError"> <small class="ngx-validation-label ">{{emailError}}</small></div>
+      </div>
+
+      <div class="form-control">
+        <div class="lable-control">
+          <label  >Phone No</label>
+        </div>
+        <div>
+          <input class="input-control" formControlName="phone" placeholder="10 digit mobile no." type="number" />
+        </div>
+        <div style="padding: 6px;font-size: 12px;color: #d67137;line-height: 13px;">
+          Please enter a valid Phone no. for smoother payment transactions.
+        </div>
+        <div class="_ErX" *ngIf="phoneError"> <small class="ngx-validation-label ">{{phoneError}}</small></div>
+
+      </div>
+      <div class="form-control">
+        <div class="lable-control">
+          <label  >Enter Password</label>
+        </div>
+        <div>
+          <input class="input-control" formControlName="password" placeholder="Password" type="password" />
+        </div>
+      </div>
+      <div class="form-control">
+        <div class="lable-control">
+          <label  >Re-Enter Password</label>
+        </div>
+        <div>
+          <input class="input-control" formControlName="rePassword" placeholder="Re-Enter Password" type="password" />
+        </div>
+      </div>
+      <!-- <div class="form-control">
+       <div class="lable-control">
+         <label  >Password</label>
+       </div>
+       <div>
+         <input class="input-control" placeholder="Password" type="password" />
+       </div>
+     </div> -->
+     <div class="form-control">
+       <div>
+          <button  color="primary" mat-raised-button type="submit">Next</button>
+       </div>
+     </div>
+
+    </form>
+    <form class="form-2" *ngIf="form == 'emailForm'" (ngSubmit)="setEmail($event)" [formGroup]="form2" ngxValidator>
+      <app-otp
+      [lable]="'Email Id'"
+      [placeholder]="'Enter email ID'"
+      [OTPUrl]="'Registration/ValidateAndSendOTP'"
+      [isPhone]="false"
+      formControlName="email"
+      ></app-otp>
+
+      <div class="form-control fixed-bottom">
+        <div>
+           <button color="primary" mat-raised-button type="submit">Next</button>
+        </div>
+      </div>
+      <!-- <div class="form-control">
+        <div class="lable-control">
+          <label  >Email ID</label>
+        </div>
+        <div>
+          <input class="input-control" placeholder="Email" type="text" />
+        </div>
+      </div> -->
+    </form>
+    <form class="form-2" *ngIf="form == 'phoneForm'" (ngSubmit)="setPhone($event)" [formGroup]="form3" ngxValidator>
+      <app-otp
+      [lable]="'Phone Number'"
+      [placeholder]="'Enter phone no.'"
+      [OTPUrl]="'Registration/ValidateAndSendOTP'"
+      [isPhone]="true"
+      formControlName="phone"
+      ></app-otp>
+      <div class="form-control fixed-bottom">
+        <div>
+           <button color="primary" mat-raised-button type="submit">Next</button>
+        </div>
+      </div>
+      <!-- <div class="form-control">
+        <div class="lable-control">
+          <label  >Email ID</label>
+        </div>
+        <div>
+          <input class="input-control" placeholder="Email" type="text" />
+        </div>
+      </div> -->
+    </form>
+    <form class="form-2" *ngIf="form == 'passwod'" (ngSubmit)="setPassword($event)" [formGroup]="passwordForm" ngxValidator>
+    <div class="form-control">
+        <div class="lable-control">
+          <label  >Enter Password</label>
+        </div>
+        <div>
+          <input class="input-control" formControlName="password" placeholder="Password" type="password" />
+        </div>
+      </div>
+      <div class="form-control">
+        <div class="lable-control">
+          <label  >Re-Enter Password</label>
+        </div>
+        <div>
+          <input class="input-control" formControlName="rePassword" placeholder="Re-Enter Password" type="password" />
+        </div>
+      </div>
+      <div class="form-control fixed-bottom">
+        <div>
+           <button color="primary" mat-raised-button type="submit">Next</button>
+        </div>
+      </div>
+      <!-- <div class="form-control">
+        <div class="lable-control">
+          <label  >Email ID</label>
+        </div>
+        <div>
+          <input class="input-control" placeholder="Email" type="text" />
+        </div>
+      </div> -->
+    </form>
+    <form class="form-2" *ngIf="form == 'complete'" [formGroup]="acknoForm" (ngSubmit)="completeRegistration($event)"  ngxValidator>
+
+      <div class="form-control">
+        <div class="lable-control">
+          <label  >Full Name</label>
+        </div>
+        <div>
+           <b>{{resgistrationRequest.FullName}}</b>
+        </div>
+
+        <div class="lable-control">
+          <label  >Email ID</label>
+        </div>
+        <div>
+           <b>{{resgistrationRequest.Email}}</b>
+        </div>
+
+        <div class="lable-control">
+          <label  >Phone No</label>
+        </div>
+        <div>
+           <b>{{resgistrationRequest.PhoneNo}}</b>
+        </div>
+
+      </div>
+      <div class="form-control">
+
+        <div style="position: absolute;bottom:80px;left:5%;line-height:18px;">
+          <label>
+            <input class="input-control" formControlName="acknowledge" type="checkbox" /> I, here by Acknowledege that this information is provide by me and is complete and correct.
+
+          </label>
+        </div>
+      </div>
+      <div class="form-control fixed-bottom">
+        <div>
+           <button color="primary" mat-raised-button type="submit">Complete Registration</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+
+</div>

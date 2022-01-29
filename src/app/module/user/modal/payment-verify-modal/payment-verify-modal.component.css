@@ -1,0 +1,11 @@
+td{
+  padding: 2px;
+  font-size: 13px;
+}
+.receipt-box{
+  padding: 4px;
+  max-height:200px ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

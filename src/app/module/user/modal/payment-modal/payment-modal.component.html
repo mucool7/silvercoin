@@ -1,0 +1,96 @@
+<h2 mat-dialog-title style="font-family: var(--font-family);margin-bottom: 0px;font-size: 17px;font-weight: bold;">Payment Transfer</h2>
+<mat-dialog-content >
+  <div class="modal-content">
+    <div class="tab-content">
+      <p style="padding-bottom: 8px;border-bottom: 1px solid #dfdfdf;">
+        Please transfer the amount to the given account within due date <b style="color: red;">to avoid account ban.</b>
+      </p>
+    <div style="padding:10px 0px">
+      <table>
+        <tr>
+          <td><b>Amount</b> </td>
+          <td> : </td>
+          <td> &nbsp; ₹ {{transferDetail.Amount}}</td>
+        </tr>
+        <tr>
+          <td><b>Due Date</b> </td>
+          <td> : </td>
+          <td> &nbsp; {{transferDetail.DueDate}}</td>
+        </tr>
+        <tr >
+          <td><b>{{transferDetail?.UPIDetail?.UpiName}}</b> </td>
+          <td> : </td>
+          <td >
+
+            &nbsp; {{transferDetail?.UPIDetail?.Upiid}}
+          </td>
+        </tr>
+        <tr >
+          <td><b>Bank Detail</b> </td>
+          <td> : </td>
+          <td rowspan="3">
+
+         <div style="padding-left: 12px;">
+          <div>
+            <div class="dark-txt">Bank Name</div>
+             {{transferDetail.BankDetail.BankName}}
+          </div>
+          <div>
+            <div class="dark-txt">Account No.</div>
+             {{transferDetail.BankDetail.AccountNumber}}
+          </div>
+          <div>
+            <div class="dark-txt">IFSC Code</div>
+             {{transferDetail.BankDetail.Ifccode}}
+          </div>
+          <div>
+            <div class="dark-txt">Account Holder's Name</div>
+             {{transferDetail.BankDetail.AccountHolderName}}
+          </div>
+         </div>
+          </td>
+        </tr>
+        <tr >
+          <td></td>
+          <td></td>
+
+        </tr>
+        <tr >
+          <td></td>
+          <td> </td>
+
+        </tr>
+
+      </table>
+     <div class="payment-proof">
+       <form [formGroup]="paymentForm" ngxValidator (ngSubmit)="onPaymentDone()">
+        <div style="padding:10px 0px;border-bottom: 1px solid #dfdfdf;border-top: 1px solid #dfdfdf;margin: 18px 0px;">
+          <b>Transfer Proof</b>
+        </div>
+        <div>
+          <p>Please upload a picture of payment transfer/deposite receipt.</p>
+        </div>
+        <div style="padding: 6px 0px;">
+         <div style="padding: 6px;">
+          <b>Paid To </b>
+         </div>
+         <select formControlName="PaidTo">
+           <option selected disabled>Select</option>
+           <option [ngValue]="transferDetail?.UPIDetail?.UpidetailNo">{{transferDetail?.UPIDetail?.UpiName}}</option>
+           <option [ngValue]="0">Bank Account</option>
+         </select>
+        </div>
+        <div style="padding: 8px 0px; max-width: 90%;padding-bottom: 12px;">
+            <input type="file" (change)="onRecieptSelect($event)" accept="image/*" formControlName="Reciept" name="reciept" id="reciept"/>
+        </div>
+        <div>
+          <button mat-flat-button color="primary" type="submit" [disabled]="!isReceiptUploaded && !enablePayNowButton" >Payment Done</button>
+        </div>
+
+       </form>
+
+     </div>
+    </div>
+ </div>
+  </div>
+</mat-dialog-content>

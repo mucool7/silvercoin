@@ -1,0 +1,169 @@
+
+<div class="page">
+
+<div class="heading-activate" *ngIf="!isAccountDetailPage">
+  <h3 style="font-size: 16px;padding: 6px 0px;">Account Activation</h3>
+  <p>Please verify below steps to activate your account</p>
+
+</div>
+<div class="body" *ngIf="accountDetails">
+  <div class="personal-detail">
+    <h4>Personal Detail </h4>
+    <div class="form-control">
+      <div class="lable-control">
+        <label>Email ID</label>
+      </div>
+      <div class="input-container">
+        <input class="input-control" [disabled]="accountDetails.KYCDetail.Email"
+          [(ngModel)]="accountDetails.KYCDetail.Email" placeholder="john@mail.com" type="email" />
+          <i *ngIf="accountDetails.KYCDetail.Email; else emailE;"  class="material-icons" style="position: absolute;margin-top: -33px;right: 32px;color: green;">done</i>
+          <ng-template #emailE>
+            <i   class="material-icons" style="position: absolute;margin-top: -33px;right: 32px;color: orange;">warning</i>
+          </ng-template>
+        <button mat-flat-button color="primary" *ngIf="!accountDetails.KYCDetail.Email">Verify</button>
+
+      </div>
+    </div>
+    <div class="form-control">
+      <div class="lable-control">
+        <label>Phone No</label>
+      </div>
+      <div class="input-container">
+        <input class="input-control" placeholder="Enter phone no" [disabled]="accountDetails.KYCDetail.PhoneNo"
+          [(ngModel)]="accountDetails.KYCDetail.PhoneNo" type="text" />
+          <i *ngIf="accountDetails.KYCDetail.PhoneNo; else phoneNo;"  class="material-icons" style="position: absolute;margin-top: -33px;right: 32px;color: green;">done</i>
+          <ng-template #phoneNo>
+            <i   class="material-icons" style="position: absolute;margin-top: -33px;right: 32px;color: orange;">warning</i>
+          </ng-template>
+        <button mat-flat-button color="primary" *ngIf="!accountDetails.KYCDetail.PhoneNo">Verify</button>
+
+      </div>
+    </div>
+    <div class="form-control">
+      <form [formGroup]="panForm" ngxValidator (ngSubmit)="addPAN()">
+        <div class="lable-control">
+          <label>PAN No</label>
+        </div>
+        <div class="input-container">
+          <input class="input-control" formControlName="PANNo" placeholder="Enter PAN No." type="text" />
+          <i  class="material-icons" *ngIf="accountDetails.KYCDetail.Panno;else pannNo;" style="position: absolute;margin-top: -33px;right: 32px;color: green;">done</i>
+          <ng-template #pannNo>
+            <i   class="material-icons" style="position: absolute;margin-top: -33px;right: 32px;color: orange;">warning</i>
+          </ng-template>
+        </div>
+        <div *ngIf="panForm.get('successMsg').value" class="alert green" style="margin-top: 20px;">
+          {{panForm.get('successMsg').value}}
+        </div>
+        <div *ngIf="panForm.get('errorMsg').value" class="alert red" style="margin-top: 4px;">
+          {{panForm.get('errorMsg').value}}
+        </div>
+        <button mat-flat-button color="primary" [disabled]="disableAddPANButton " *ngIf="showPANButton"
+          type="submit">Add PAN No.</button>
+
+      </form>
+    </div>
+  </div>
+  <div class="upi">
+    <h4>UPI Detail</h4>
+    <form [formGroup]="upiForm" ngxValidator (ngSubmit)="addUPI()">
+
+      <div class="form-control">
+        <div class="lable-control">
+          <label>Upi address ( for payment transfer )</label>
+        </div>
+        <div>
+          <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            formControlName="UPIType">
+            <div class="upi-types">
+
+              <div class="upi-merchant">
+                <mat-radio-button class="example-radio-button" [name]="'upi'" [value]="1">
+                  GooglePay
+                </mat-radio-button>
+              </div>
+              <div class="upi-merchant">
+                <mat-radio-button class="example-radio-button" [name]="'upi'" [value]="2">
+                  PhonePe
+                </mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+
+
+
+        <div class="input-container">
+          <input class="input-control" formControlName="UPIAddress" placeholder="Enter upi id" type="text" />
+          <i  class="material-icons" *ngIf="accountDetails.UPIDetail?.Upiid;else upino;" style="position: absolute;margin-top: -33px;right: 32px;color: green;">done</i>
+          <ng-template #upino>
+            <i   class="material-icons" style="position: absolute;margin-top: -33px;right: 32px;color: orange;">warning</i>
+          </ng-template>
+        </div>
+
+        <div *ngIf="upiForm.get('successMsg').value" class="alert green" style="margin-top: 20px;">
+          {{upiForm.get('successMsg').value}}
+        </div>
+        <div *ngIf="upiForm.get('errorMsg').value" class="alert red" style="margin-top: 4px;">
+          {{upiForm.get('errorMsg').value}}
+        </div>
+        <button mat-flat-button color="primary"  [disabled]="disableUPIButton " *ngIf="showUPIButton" type="submit">Add UPI</button>
+
+      </div>
+    </form>
+
+  </div>
+  <div class="bank-detail">
+    <h4>Bank Detail</h4>
+    <form [formGroup]="bankForm" ngxValidator (ngSubmit)="addBank()">
+
+      <div class="form-control">
+        <div class="lable-control">
+          <label>Bank Name</label>
+        </div>
+        <div>
+          <input class="input-control" formControlName="BankName" placeholder="Enter Bank Name" type="text" />
+        </div>
+      </div>
+      <div class="form-control">
+        <div class="lable-control">
+          <label>IFSC Code</label>
+        </div>
+        <div>
+          <input class="input-control" formControlName="IFSCCode" placeholder="Enter IFSC Code" type="text" />
+        </div>
+      </div>
+      <div class="form-control">
+        <div class="lable-control">
+          <label>Account Number</label>
+        </div>
+        <div>
+          <input class="input-control" formControlName="AccountNumber" placeholder="Enter Bank Account No"
+            type="number" />
+        </div>
+      </div>
+      <div class="form-control">
+        <div class="lable-control">
+          <label>Account Holder Name</label>
+        </div>
+        <div>
+          <input class="input-control" formControlName="Name" placeholder="Enter Name" type="text" />
+        </div>
+      </div>
+      <div *ngIf="bankForm.get('successMsg').value" class="alert green" style="margin-top: 20px;">
+        {{bankForm.get('successMsg').value}}
+      </div>
+      <div *ngIf="bankForm.get('errorMsg').value" class="alert red" style="margin-top: 4px;">
+        {{bankForm.get('errorMsg').value}}
+      </div>
+      <button mat-flat-button color="primary" type="submit" [disabled]="disableBankButton" *ngIf="showBankButton">Add Bank Detail</button>
+    </form>
+
+  </div>
+
+  <div class="page-action" *ngIf="showNextButton && !isAccountDetailPage">
+
+     <button mat-flat-button (click)="onNext()" color="primary">Next</button>
+
+  </div>
+</div>
+</div>

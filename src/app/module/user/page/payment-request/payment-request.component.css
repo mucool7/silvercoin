@@ -1,0 +1,52 @@
+.page-transact{
+  margin: 12px;;
+  background-color: #fff;
+  min-height: 95vh;
+  border-radius: 4px;
+}
+
+ .page-transact .page-header{
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 2px solid #404040;
+  padding: 16px;
+}
+.page-transact .page-content{
+  padding: 16px;
+}
+
+.list{
+  display: flex;
+  padding: 4px;
+  margin-bottom: 8px;
+
+}
+.list .sno{
+  width: 20px;
+  font-weight: bold;
+}
+
+.list .content{
+  flex:1;
+}
+.list .content .header{
+  font-weight: bold;
+  font-size: 15px;
+  padding-bottom: 4px;
+}
+.list .content .due-date{
+  font-size: 13px;
+}
+
+.list .link{
+  width: 90px;
+}
+
+.reedem-status{
+  font-weight: normal;
+  font-size: 12px;
+  padding: 2px;
+  border-radius: 4px;
+  color: #fff;
+  white-space: nowrap;
+}

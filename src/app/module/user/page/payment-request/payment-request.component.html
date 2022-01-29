@@ -1,0 +1,41 @@
+<div class="page-transact">
+
+  <div class="page-header">
+    Payment Request <span *ngIf="paymentRequests?.length>0"
+      style="color: orangered;">({{paymentRequests.length}})</span>
+  </div>
+  <div class="page-content">
+
+    <div class="list" *ngFor="let payment of paymentRequests;let i =index">
+      <div class="sno">
+        {{i+1}}.
+      </div>
+      <div class="content">
+
+        <div class="header">₹ {{payment.Amount.toFixed(2)}} <span style="font-weight: normal;">[{{payment.Type}}]</span>
+
+        </div>
+        <div class="due-date" *ngIf="payment?.ProductNo==2">Pay Before : {{payment.DueDate}}</div>
+        <div class="due-date" *ngIf="payment?.ProductNo==3">Transaction Date : {{payment.DueDate}}</div>
+        <div class="due-date" style="padding-top: 4px;">
+          <span class="reedem-status" [ngClass]="'order-status-'+payment.OrderStatusNo" *ngIf="payment?.ProductNo ==3"> &nbsp; <span *ngIf="!payment?.IsReceived">
+              {{payment.OrderStatus}} </span> <span *ngIf="payment?.IsReceived">AMOUNT COLLECTED </span> &nbsp; </span>
+          <span class="reedem-status" [ngClass]="'order-status-'+payment.OrderStatusNo" *ngIf="payment?.ProductNo ==2"> &nbsp; <span *ngIf="!payment?.IsReceived">
+              {{payment.OrderStatus}} </span> <span *ngIf="payment?.IsReceived">AMOUNT PAID </span> &nbsp; </span>
+
+        </div>
+
+      </div>
+      <div class="link" *ngIf="payment?.ProductNo==2 && payment?.OrderStatusNo == 8">
+        <button mat-stroked-button color="accent" style="margin-top: -4px;"
+          (click)="onPayNow(payment.OrderDetailNo,payment.PaymentRequestNo)">Pay Now</button>
+
+      </div>
+      <div class="link" *ngIf="payment?.ProductNo==3 && payment?.OrderStatusNo == 7">
+        <button mat-stroked-button color="primary" style="margin-top: -4px;"
+          (click)="onApprove(payment.PaymentRequestNo)">Verify</button>
+      </div>
+    </div>
+
+  </div>
+</div>

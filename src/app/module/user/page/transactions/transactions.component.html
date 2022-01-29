@@ -1,0 +1,52 @@
+<div class="page-transact">
+
+  <div class="page-header">
+    All Transactions
+    <span *ngIf="transactions?.length>0"
+      style="color: orangered;">({{transactions.length}})</span>
+  </div>
+  <div class="page-content">
+
+    <div class="list">
+      <div class="item" *ngFor="let item of transactions">
+         <div class="list-order">
+          {{item.CreatedDate}}
+          <span style="float: right;font-size: 13px;font-weight: normal;">₹ {{item.Amount.toFixed(2)}}
+
+
+            <i class="material-icons" style="vertical-align: top;font-size: 18px;padding: 0px;color: green;">
+              {{
+                item.ProductNo == 2 ?'call_made':'call_received'
+              }}
+              </i>
+
+
+          </span>
+         </div>
+         <div>
+           <div class="list-body">
+             <div>
+             {{item.OrderReciept}}
+          <span style="float: right;font-size: 11px;font-weight: normal;margin-right: 14px;">( {{item.Quantity.toFixed(8)}} )</span>
+
+             </div>
+             <div>
+               Coin {{item.ProductNo == 2 ? 'Buy':'Sell'}}
+             </div>
+             <div>
+               <span [ngClass]="'order-status-'+item.OrderStatusNo">
+                {{item.Status}}
+
+               </span>
+            </div>
+            <div style="text-align: center;padding:4px;padding-bottom: 0px;margin-top: 18px;;">
+                <span style="padding: 6px;border: 1px solid #efefef;font-size: 12px;border-radius: 8px;">
+                   Payment Detail
+                </span>
+            </div>
+           </div>
+
+         </div>
+      </div>
+    </div>
+  </div>

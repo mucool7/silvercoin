@@ -1,0 +1,220 @@
+/* You can add global styles to this file, and also import other style files */
+@import "ngx-form-validator-super/src/styless.css";
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+:root {
+  --font-family:'Work Sans', sans-serif
+}
+._ErX{
+  padding: 8px 2px;
+  padding-bottom: 0px;
+  margin-top: 4px;
+}
+._BrdrError{
+  display: block;
+  padding: 12px;
+  border-radius: 4px;
+}
+*{
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+body{
+  background-color: #efefef;
+  font-family: var(--font-family);
+  color: #303030;
+}
+
+.form-control{
+  margin: 28px 0px;
+}
+input[type="text"],input[type="password"],input[type="email"],input[type="number"].input-control{
+  width: 94%;
+  padding: 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.lable-control{
+  margin: 8px 0px;
+}
+select.input-control{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  font-size: 14px;
+}
+button{
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+
+}
+.primary-btn{
+
+  border: 2px solid #33528b;
+  color: #fff;
+background-color: #33528b;
+}
+
+.secondary-btn{
+
+  border: 2px solid #488b33;
+  color: #fff;
+background-color: #488b33;
+
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+
+.page{
+  margin: 24px;;
+  background-color: #fff;
+  min-height: 85vh;
+  border-radius: 4px;
+  padding: 18px;
+
+}
+
+.container-flex{
+  display: flex;
+}
+.container{
+
+}
+.alert{
+  padding: 8px;
+  font-size: 16px;
+  word-break:break-all;
+}
+
+.flex-1{
+  flex:1;
+}
+
+.flex-100{
+  width: 100%;
+}
+
+.align-left{
+  text-align: left;
+}
+
+@media only screen and (max-width: 600px) {
+
+  *{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+  }
+  .page-transact{
+    margin: 12px;;
+    background-color: #fff;
+    min-height: 95vh;
+    border-radius: 4px;
+  }
+
+   .page-transact .page-header{
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 2px solid #404040;
+    padding: 16px;
+  }
+  .page-transact .page-content{
+    padding: 16px;
+  }
+
+  .page-action{
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+  }
+  .page-action button{
+    flex:1;
+    align-items: center;
+  }
+
+  .container-flex{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .flex-1{
+    width: 50%;
+  }
+  .page{
+    margin: 10px;
+  }
+  button{
+    padding: 6px;
+    font-size: 13px;
+    background-color: #fff;
+    border: none;
+  }
+
+ .primary-btn-fill{
+  border: 2px solid #33528b;
+  color: #fff;
+background-color: #33528b;
+ }
+
+ .secondary-btn-fill{
+  border: 2px solid #488b33;
+  color: #fff;
+background-color: #488b33;
+ }
+  .alert{
+    padding: 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    line-height: 18px;
+  }
+
+
+  .alert.red{
+    background-color: #e08888;
+    color: #fff;
+  }
+  .alert.green{
+    background-color: #88e08f;
+    color: #fff;
+  }
+}
+
+
+.order-status-4{
+  background-color: #82dd76;
+  color: #fff;
+  text-transform: uppercase;
+}
+.order-status-5{
+  background-color: gray;
+  color: #fff;
+  text-transform: uppercase;
+
+}
+.order-status-6{
+  background-color: #beb529;
+  color: #fff;
+  text-transform: uppercase;
+
+}
+.order-status-7{
+  background-color: #f5734c;
+  color: #fff;
+  text-transform: uppercase;
+}
+.order-status-8{
+  background-color: #f5734c;
+  color: #fff;
+  text-transform: uppercase;
+}
+select,option{
+  appearance: none;
+}
+
+html, body { height: 100%; }

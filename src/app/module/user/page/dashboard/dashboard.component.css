@@ -1,0 +1,220 @@
+
+.tile{
+  margin: 0 auto;
+  width: 80%;
+  padding: 12px;
+  text-align: center;
+}
+
+.tile .head{
+  padding: 8px 0px;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+
+.tile .body{
+  padding: 12px 0px;
+
+
+}
+.tile .body .price{
+  font-size: 34px;
+}
+
+
+.msg{
+  padding: 8px;
+  text-align: center;
+  padding-top: 0px;
+  color: #e78e3a;
+}
+
+table{
+  width: 100%;
+}
+table caption{
+  text-align: left;
+  padding: 12px;
+  padding-left: 0px;
+  padding-bottom: 18px;
+  font-weight: bold;
+
+}
+.buy-pill{
+  color: #000;
+  font-size: 14px;
+  padding: 4px;
+  border-radius: 4px;
+}
+.recent-order{
+  margin: 8px;
+  height: 40px;
+  display: none;
+}
+
+.recent-order .orders{
+  padding: 12px 18px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.recent-order .orders .type{
+  font-weight: bold;
+  padding-bottom: 8px;
+}
+.transactions{
+  padding: 14px;
+  background-color: #fff;
+  margin: 8px;
+  border-radius: 4px;
+  padding-bottom: 28px;
+}
+
+table th{
+  text-align: left;
+  padding-bottom: 4px;
+  color: #000;
+  font-size: 13px;
+}
+table td{
+  padding: 6px 2px;
+  font-size: 13px;
+}
+
+.account-detail{
+  padding: 32px 8px;
+}
+
+.account-detail h3 {
+  border-bottom: 1px solid #dfdfdf;
+  padding-bottom: 10px;
+}
+
+.user-info{
+  background-color: #fff;
+  min-height: 200px;
+  margin: 0px 8px;
+  padding: 28px 18px;
+  border-radius: 4px;
+}
+
+.user-info .utile{
+
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 4px;
+}
+.page{
+  background-color: #ffffff00;
+  padding: 0px ;
+  padding-bottom: 30px;
+}
+.section{
+  margin:10px 8px;
+  padding: 8px 2px;
+  color: #404040;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.utile-row{
+  display: flex;
+  height: 40px;
+  margin-bottom: 18px;
+  width: 100%;
+}
+.utile-row .icon{
+  width: 40px;
+  margin-right: 10px;
+  background-color: #efefef;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.utile-row .icon .material-icons{
+vertical-align: middle;font-size: 32px;color: #fff;
+
+}
+
+.utile-row .icon.green{
+  background-color: #33b955;
+}
+.utile-row .icon.yellow{
+  background-color: #287ddd;
+}
+
+.utile-row .icon.brown{
+  background-color: #f89b22;
+}
+
+.utile-row .icon.skyblue{
+  background-color: #ec4f1f;
+}
+.payment-request{
+  margin: 8px;
+  padding: 18px;
+  background-color: #fff;
+}
+
+.payment-request .head{
+  font-weight: bold;
+  margin-right: 10px;
+}
+.payment-request .link{
+  float: right;
+  color: blue;
+  font-weight: bold;
+}
+/*
+9941eb */
+.utile-row .content{
+  padding: 2px;
+  flex: 1;
+}
+.utile-row .val{
+  width: 80px;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-align: right;
+  line-height: 40px;
+  color: #000;
+  font-size: 14px;
+}
+
+.utile-row .content .header{
+  padding: 1px 0px;
+  padding-top: 1px;
+}
+
+.utile-row .content .caption{
+  font-weight: bold;
+  color: #000;
+  font-size: 14px;
+
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+  .tile{
+    margin-bottom: 12px;
+    border-radius: 4px;
+  }
+
+  .tile .head{
+    padding: 4px 0px;
+    font-size: 13px;
+  }
+
+  .tile .body .price{
+    font-size: 22px;
+  }
+
+  .account-detail .container-flex .flex-1 .tile .body .price{
+    font-size: 20px;
+    white-space: nowrap;
+  }
+}

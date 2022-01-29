@@ -1,0 +1,50 @@
+<h2 mat-dialog-title style="font-family: 'Epilogue', sans-serif;;">Buy Coin</h2>
+<mat-dialog-content>
+
+<div style="font-family: 'Epilogue', sans-serif;;">
+    <p style="line-height: 17px;font-size: 13px;padding: 5px 0px;padding-bottom: 10px;color: #404040;">
+    You need not to pay the Amount at the time of Purchase.
+    but you may recieve payment messages in your registered mobile number anytime after Purchase,
+    and same must paid within 48 hrs.
+  </p>
+  <div class="body">
+
+    <div class="form-control" style="font-weight: bold;font-size: 13px;display: none;">
+
+     Buy a coin with just ₹ {{coinValue}}
+
+ </div>
+    <div class="form-control">
+      <div class="lable-control">
+        <label style="font-weight: bold;" >Select an amount</label>
+      </div>
+      <div>
+        <select class="input-control"[(ngModel)]="selectedAmount" (change)="onAmountSelect($event)">
+          <option [ngValue]="null" disabled>
+            Select An Amount
+          </option>
+          <ng-container *ngFor="let option of CoinSellRange">
+            <option value="{{option.Value}}" >
+              {{option.Name}}
+            </option>
+          </ng-container>
+
+        </select>
+
+      </div>
+    </div>
+    <div class="form-control"  style="text-align: center;font-weight: bold;" *ngIf="TotalCoin">
+
+        {{TotalCoin}} Coins
+
+   </div>
+   <div class="form-control">
+     <div>
+        <button mat-flat-button color="primary" [disabled]="!selectedAmount" (click)="onBuyCoin()">Purchase Coins </button>
+     </div>
+   </div>
+
+  </div>
+</div>
+
+</mat-dialog-content>

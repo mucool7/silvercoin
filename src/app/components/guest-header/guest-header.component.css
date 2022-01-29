@@ -1,0 +1,17 @@
+.nav-link{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+nav{
+  color: #fff;
+  padding: 18px;
+  background-color: #353030;
+  display: flex;
+}
+
+nav div.logo {
+  width: auto;
+  color: #efefef;
+  font-weight: bold;
+}

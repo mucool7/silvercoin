@@ -1,0 +1,59 @@
+
+
+<div class="main-container" style="transition: all 0.3s;">
+  <div class="user-side-nav-conatiner " [ngClass]="{'show-menu':activate}" (click)="menuClick()">
+
+
+    <div class="side-menu" [ngClass]="{'activate-menu':activatePannel}">
+
+      <div class="mohar">
+        MMM Silver Coin
+      </div>
+      <div class="user" [routerLink]="'account'">
+          <div class="dp">
+
+          </div>
+          <div class="detail">
+            <div>
+              {{username}}
+            </div>
+            <div style="font-weight: normal;font-size: 12px;padding: 4px 0px;text-transform: none;">{{email}}</div>
+            <div style="font-size: 12px;padding: 4px 0px;text-transform: none;color: green;" *ngIf="isKYC">Active</div>
+            <div style="font-size: 12px;padding: 4px 0px;text-transform: none;color: #96150c;" *ngIf="!isKYC">Hold</div>
+          </div>
+
+      </div>
+      <div class="menus">
+        <!-- <div class="row">
+          Transaction Details
+        </div>
+        <div class="row">
+          Privacy Policy
+        </div>
+
+        <div class="row">
+          How To Use
+        </div> -->
+        <div class="row" [routerLink]="'home'" *ngIf="isKYC">
+          Dashboard
+        </div>
+        <div class="row" [routerLink]="'paymentrequest'" *ngIf="isKYC">
+          Payment request
+        </div>
+        <div class="row" [routerLink]="'reedem'" *ngIf="isKYC">
+          Reedem Coin
+        </div>
+        <div class="row" [routerLink]="'transactions'" *ngIf="isKYC">
+          Transactions
+        </div>
+
+        <div class="row" (click)="logout()">
+          Logout
+        </div>
+      </div>
+
+    </div>
+    </div>
+</div>
+
+

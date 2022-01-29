@@ -1,0 +1,45 @@
+<div class="login-box">
+
+   <div class="heading">
+      Welcome to
+      <div style="padding: 8px;">
+        <span style="font-weight: bold;font-size: 18px;letter-spacing: 1px;">MMM Silver Coin</span>
+      </div>
+   </div>
+   <div class="sub-head">
+    Login to start the session
+   </div>
+   <div class="body">
+    <div class="alert red" style="margin-top: 20px;" *ngIf="errorMsg">
+      <p>{{errorMsg}}</p>
+    </div>
+
+    <form (ngSubmit)="onLogin()" [formGroup]="loginForm" ngxValidator>
+      <div class="form-control">
+        <div class="lable-control">
+          <label  >Email/username</label>
+        </div>
+        <div>
+          <input class="input-control" formControlName="userName" placeholder="Email" type="text" />
+        </div>
+      </div>
+      <div class="form-control">
+       <div class="lable-control">
+         <label  >Password</label>
+       </div>
+       <div>
+         <input class="input-control" formControlName="password" placeholder="Password" type="password" />
+       </div>
+     </div>
+     <div class="form-control">
+       <div>
+          <button class="primary-btn-fill" type="submit" >Login</button>
+       </div>
+     </div>
+    </form>
+
+   </div>
+   <div class="footer">
+      <span [routerLink]="['/register']"  >Register a new membership</span>
+   </div>
+</div>

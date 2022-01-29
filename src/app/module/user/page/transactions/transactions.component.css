@@ -1,0 +1,26 @@
+
+
+.list{
+  padding:0px;
+
+}
+
+.list .item {
+  padding: 10px 8px;
+  border: 1.3px dashed #dfdfdf;
+  margin-bottom: 12px;
+  padding-bottom: 18px;
+}
+
+.list .item .list-order{
+  font-size: 13px;
+  padding-bottom: 6px;
+  font-weight: bold;
+}
+
+.list-body>div{
+  font-size: 12px !important;
+}
+.page-content{
+  padding:8px;
+}

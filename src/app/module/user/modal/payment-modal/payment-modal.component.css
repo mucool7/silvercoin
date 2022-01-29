@@ -1,0 +1,18 @@
+.modal-content{
+  min-width: 100%;
+  min-height: 300px;
+  color: #606060;
+}
+
+.tab-content{
+  padding: 10px 0px;
+}
+td{
+  padding: 2px;
+}
+td b{
+  font-size: 13px;
+}
+.dark-txt{
+  color: #202020;
+}

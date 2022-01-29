@@ -1,0 +1,74 @@
+<h2 mat-dialog-title style="font-family: var(--font-family);margin-bottom: 0px;font-size: 17px;font-weight: bold;">
+  Payment Verify</h2>
+<mat-dialog-content>
+  <div class="modal-content">
+    <div class="tab-content">
+      <p style="padding-bottom: 8px;border-bottom: 1px solid #dfdfdf;">
+        Please confirm the amount you have received in your account on <b style="">{{data.ReceivedDate}}</b>
+      </p>
+      <div style="padding:10px 0px">
+
+        <table>
+          <tr>
+            <td>Order ID</td>
+            <td> : </td>
+            <td> {{data.OrderID}} </td>
+          </tr>
+          <tr>
+            <td>Order Date</td>
+            <td> : </td>
+            <td> {{data.OrderDate}} </td>
+          </tr>
+          <tr>
+            <td>Order Amount</td>
+            <td> : </td>
+            <td> ₹ {{data.Amount}} </td>
+          </tr>
+          <tr>
+            <td>Paid To </td>
+            <td> : </td>
+            <td> {{data.UpiDetailNo?'UPI':'Bank'}} </td>
+          </tr>
+          <tr>
+            <td>Paid On</td>
+            <td> : </td>
+            <td> {{data.ReceivedDate}} </td>
+          </tr>
+          <tr>
+            <td>Paid Amount</td>
+            <td> : </td>
+            <td> ₹ {{data.Amount}} </td>
+          </tr>
+        </table>
+
+
+        <div class="receipt-box">
+          <img [src]="serverURL+data.ReceiptPath" style="max-height: 200px;">
+        </div>
+        <a [href]="serverURL+data.ReceiptPath" [download]="downloadName" >Download Receipt</a>
+
+        <form [formGroup]="form" ngxValidator (ngSubmit)="onPaymentReceived()" >
+
+          <div style="padding: 8px 4px;">
+            <label for="agree" style="font-size: 10px;">
+              <input type="checkbox" formControlName="agree" id="agree"> I, here by confirms that I have received the amount as mentioned above.
+            </label>
+          </div>
+
+          <div style="padding: 14px 4px;padding-top: 0px;">
+            <label for="agree2" style="font-size: 10px;">
+              <input type="checkbox" id="agree2" formControlName="agree2"> I, here by agrees that after confirming this transaction company is
+              not liable to pay any money.
+            </label>
+          </div>
+          <div>
+            <button mat-flat-button color="primary" type="submit" [disabled]="!enableVerifyButton" >Payment Received</button>
+          </div>
+        </form>
+
+
+
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

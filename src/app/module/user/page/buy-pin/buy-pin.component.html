@@ -1,0 +1,43 @@
+<div class="page">
+
+<h1>Confirm Account Activation</h1>
+
+
+<div class="body">
+  <form [formGroup]="pinForm" ngxValidator (ngSubmit)="addPin()">
+
+    <div class="alert red" style="margin:12px 4px;" *ngIf="pinError">
+      <p>{{pinError}}</p>
+    </div>
+    <div class="alert green" style="margin: 12px 4px;" *ngIf="pinSuccess">
+      <p>{{pinSuccess}}</p>
+      <p>Redirecting you to home page...</p>
+    </div>
+    <div class="form-control" *ngIf="showPinButton">
+      <div class="lable-control">
+        <label>Enter PIN</label>
+      </div>
+      <div>
+        <input class="input-control" formControlName="pin" placeholder="16 Character Long PIN" type="text" />
+      </div>
+    </div>
+    <button type="submit" *ngIf="showPinButton" mat-flat-button color="primary" >Submit</button>
+  </form>
+
+    <ng-container *ngIf="false">
+      <div style="padding: 12px;font-weight: bold;text-align: center;">
+        Or,
+      </div>
+      <div class="alert red" style="margin: 4px;" *ngIf="paymentError">
+        <h1>Payment Failed</h1>
+        <p>Last transaction does not completed successfully. In case any amount is deducted, same will pe paid back to you in 72 hrs.</p>
+      </div>
+      <div class="alert green" style="margin: 4px;" *ngIf="paymentSuccess">
+        <h1>{{paymentSuccess}}</h1>
+        <p>Last transactionwas successfull.</p><p>Redirecting you to login.</p>
+      </div>
+      <button type="submit" mat-raised-button color="primary" [disabled]="disableButton" *ngIf="showBuyButton" (click)="buyNow()" >Buy New Pin ( 2000 )</button>
+
+    </ng-container>
+</div>
+</div>

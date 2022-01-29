@@ -1,0 +1,14 @@
+
+<div *ngIf="isMobile">
+<router-outlet></router-outlet>
+
+</div>
+<div style="display: flex;align-items: center;justify-content: center;margin-top: 12px;" *ngIf="!isMobile">
+     <div style="width: 80%;padding: 40px;min-height: 100px;background-color: #fff;border-bottom: 4px solid #707070;">
+      <div style="font-size: 32px;text-align: center;">Desktop Version Not Supported</div>
+      <div style="font-size: 22px;text-align: center;padding: 6px;">Please open this site in mobile device!</div>
+      <div style="text-align: center;" *ngIf="false">
+        <img src="https://www.mheal.in/images/mobiles.png" />
+      </div>
+     </div>
+</div>

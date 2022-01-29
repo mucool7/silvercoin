@@ -1,0 +1,16 @@
+.otp-form{
+  margin-top: 80px;
+  max-width: 60% !important;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .otp-form{
+    max-width: 50%;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+}
