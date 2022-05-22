@@ -51,6 +51,9 @@ export class ReedemCoinComponent implements OnInit {
         this.tostr.error(res.Message,"Error !!");
       }
 
+    },error=>{
+      this.tostr.error("Please contact Admin.","Server Error");
+
     })
   }
 

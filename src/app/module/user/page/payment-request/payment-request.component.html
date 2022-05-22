@@ -36,6 +36,9 @@
           (click)="onApprove(payment.PaymentRequestNo)">Verify</button>
       </div>
     </div>
+    <div class="list" *ngIf="!paymentRequests?.length">
+          No Requests.
+    </div>
 
   </div>
 </div>

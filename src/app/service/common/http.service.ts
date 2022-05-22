@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { EMPTY, Observable, of, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { map, tap } from "rxjs/operators";
+import { catchError, map, tap } from "rxjs/operators";
 import { LocalStateService } from './local-state.service';
 import { LoginResponse } from 'src/app/module/contracts/login-response';
 import { environment } from "../../../environments/environment";
@@ -37,7 +37,7 @@ export class HttpService {
         if(res=='add'){
           httpCount++;
           if(httpCount>0){
-              setDuration(100000);
+              setDuration(40000);
           }
         }
         else{
@@ -46,7 +46,7 @@ export class HttpService {
             setTimeout(()=>{
             this.hideLoader();
 
-            },1000)
+            },250)
           }
         }
 
@@ -71,14 +71,30 @@ export class HttpService {
   }
   post<T>(url,data):Observable<T>{
     let header= this.getHeaders();
-    return this.httpClient.post(this.getEndPoint(url),data,{headers:header}).pipe(map(x=> x as T),tap(()=>this.httpCount.next('remove')))
+    return this.httpClient.post(this.getEndPoint(url),data,{headers:header})
+    .pipe(
+      map(x=> x as T),
+      tap(()=>this.httpCount.next('remove')),
+      catchError((x,caugth)=>{
+        this.httpCount.next('remove');
+        throw x;
+      }))
   }
   get<T>(url):Observable<T>{
     let header= this.getHeaders();
-    return this.httpClient.get(this.getEndPoint(url),{headers:header}).pipe(map(x=> x as T),tap(()=>this.httpCount.next('remove')))
+    return this.httpClient.get(this.getEndPoint(url),{headers:header})
+    .pipe(
+      map(x=> x as T),
+      tap(()=>this.httpCount.next('remove')),
+      catchError((x,caugth)=>{
+        this.httpCount.next('remove');
+        throw x;
+      }))
   }
 
   upload<T>(url,file,data):Observable<T> {
+
+    this.httpCount.next('add')
 
     // Create form data
     const formData = new FormData();
@@ -92,7 +108,13 @@ export class HttpService {
 
     // Make http post request over api
     // with formData as req
-    return this.post<T>(url,formData)
+    return this.post<T>(url,formData).pipe(
+      map(x=> x as T),
+      tap(()=>this.httpCount.next('remove')),
+      catchError((x,caugth)=>{
+        this.httpCount.next('remove');
+        throw x;
+      }))
 }
 
   // private addHttpCount(){

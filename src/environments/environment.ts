@@ -8,6 +8,12 @@ export const environment = {
   apiURL:"http://192.168.1.14:5000/api/"
 };
 
+// export const environment = {
+//   production: true,
+//   serverURL:"http://ec2-elb-1322835692.ap-south-1.elb.amazonaws.com:8141",
+//   apiURL:"http://ec2-elb-1322835692.ap-south-1.elb.amazonaws.com:8141/api/"
+// };
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

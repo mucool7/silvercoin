@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from 'src/app/service/common/http.service';
 import { MatButtonModule } from '@angular/material/button';
 import { NgxFormValidatorModule, NgxValidatorLabelService } from 'ngx-form-validator-super';
+// import { NgxFormValidatorModule, NgxValidatorLabelService } from 'C:/working code/Angular Library/ngx-form/dist/ngx-form-validator';
+
 
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTabsModule} from '@angular/material/tabs';

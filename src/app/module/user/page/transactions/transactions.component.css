@@ -5,6 +5,15 @@
 
 }
 
+.order-status{
+  font-weight: normal;
+  font-size: 12px;
+  padding: 2px;
+  border-radius: 4px;
+  color: #fff;
+  white-space: nowrap;
+}
+
 .list .item {
   padding: 10px 8px;
   border: 1.3px dashed #dfdfdf;
