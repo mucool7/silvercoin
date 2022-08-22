@@ -64,8 +64,10 @@ export class HttpService {
   get baseURL (){
     return this._baseURL;
   }
-  private getEndPoint(url:string){
+  private getEndPoint(url:string,noloader=false){
+    if(!noloader){
     this.httpCount.next('add')
+    }
     url = url[0]=='/'?url.substr(1):url;
     return `${this._baseURL}${url}`
   }
@@ -88,6 +90,16 @@ export class HttpService {
       tap(()=>this.httpCount.next('remove')),
       catchError((x,caugth)=>{
         this.httpCount.next('remove');
+        throw x;
+      }))
+  }
+
+  getNoLoader<T>(url):Observable<T>{
+    let header= this.getHeaders();
+    return this.httpClient.get(this.getEndPoint(url,true),{headers:header})
+    .pipe(
+      map(x=> x as T),
+      catchError((x,caugth)=>{
         throw x;
       }))
   }

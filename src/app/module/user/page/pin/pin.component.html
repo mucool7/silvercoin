@@ -1,0 +1,33 @@
+<div class="page-transact">
+
+    <div class="page-header">
+      PIN
+
+      <button mat-flat-button (click)="createPin()" *ngIf="isMaster" style="float: right;width:100px;margin-top: -8px ;" color="primary">Create PIN</button>
+    
+    </div>
+    <div class="page-content">
+  
+        <div class="pin-list">
+            <ng-container *ngIf="!isMaster">
+                <div class="pin" *ngFor="let pin of pins;let i = index">
+                    <div class="index">{{i+1}}.</div>
+                    <div class="pin-no">{{pin.Pin1}}</div>
+                    <div class="pin-status" [ngClass]="{'avalb':!pin.AssignedTo }" >{{pin.AssignedTo ? 'Assigned' :'Available' }}</div>
+                    <div class="pin-assigned-to">{{pin.AssignedTo ? pin.AssignedTo :'null' }}</div>
+                </div>
+            </ng-container>
+            <ng-container>
+
+                <div class="master-pin" *ngFor="let master of masterInfo">
+                    <div class="name">{{master.Name}}</div>
+                    <div class="count">{{master.PinCount}}</div>
+                </div>
+                
+
+            </ng-container>
+           
+        </div>
+
+    </div>
+  

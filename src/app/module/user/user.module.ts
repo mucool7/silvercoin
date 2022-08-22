@@ -18,7 +18,10 @@ import { NgxFormValidatorModule, NgxValidatorLabelService } from 'ngx-form-valid
 
 
 import {MatRadioModule} from '@angular/material/radio';
+import {MatInputModule} from '@angular/material/input';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatBadgeModule} from '@angular/material/badge';
 import { BuyPinComponent } from './page/buy-pin/buy-pin.component';
 import { ProfileComponent } from './page/profile/profile.component';
@@ -27,6 +30,9 @@ import { PaymentModalComponent } from './modal/payment-modal/payment-modal.compo
 import { ReedemCoinComponent } from './page/reedem-coin/reedem-coin.component';
 import { PaymentVerifyModalComponent } from './modal/payment-verify-modal/payment-verify-modal.component';
 import { TransactionsComponent } from './page/transactions/transactions.component';
+import { PinComponent } from './page/pin/pin.component';
+import { CreatePinModalComponent } from './modal/create-pin-modal/create-pin-modal.component';
+import { LevelIncomeDetailComponent } from './page/level-income-detail/level-income-detail.component';
 @NgModule({
   declarations: [
     UserLayoutComponent,
@@ -42,6 +48,9 @@ import { TransactionsComponent } from './page/transactions/transactions.componen
     ReedemCoinComponent,
     PaymentVerifyModalComponent,
     TransactionsComponent,
+    PinComponent,
+    CreatePinModalComponent,
+    LevelIncomeDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -54,7 +63,10 @@ import { TransactionsComponent } from './page/transactions/transactions.componen
     MatBadgeModule,
     NgxFormValidatorModule.forRoot(),
     MatRadioModule,
-    MatTabsModule
+    MatTabsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule
 
 
   ],

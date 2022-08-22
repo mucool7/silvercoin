@@ -1,0 +1,49 @@
+
+
+.pin{
+    display: flex;
+    padding: 4px 0px;
+}
+
+.pin .index{
+    width: 50px;
+    font-weight: bold;
+    padding-top: 4px;
+}
+
+.pin .pin-no{
+    width: 150px;
+    font-weight: bold;
+    padding: 4px;
+    border: 1px dashed #dfdfdf ;
+}
+.pin .pin-status{
+    width: 80px;
+    color: #505050;
+    padding: 4px 0px;
+    padding-left: 8px;
+}
+.pin-status.avalb{
+    color: green !important;
+}
+.pin .pin-assigned-to{
+    width:40px;
+}
+
+.master-pin {
+    display: flex;
+    padding: 8px 0px;
+    border-bottom: 1px solid #dfdfdf;
+
+}
+
+.master-pin .name{
+
+    flex: 1;
+}
+.master-pin .count{
+
+    width: 60px;
+    text-align: center;
+    
+}

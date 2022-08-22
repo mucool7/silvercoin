@@ -1,0 +1,21 @@
+<div class="page-transact">
+
+    <div class="page-header">
+      Level Income Detail
+    </div>
+    <div class="page-content">
+  
+        <div class="level-list">
+                <div class="level" *ngFor="let levelIncome of levelIncomes;let i = index">
+                    <div class="index">{{i+1}}.</div>
+                    <div class="content">
+                        <div class="level-coin">{{levelIncome.Coin }}</div>
+                        <div class="level-message">{{levelIncome.Message}}</div>
+                        <div class="level-date">{{levelIncome.CreatedAt | date }}</div>
+                    </div>
+                </div>
+           
+        </div>
+
+    </div>
+  

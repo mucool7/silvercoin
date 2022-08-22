@@ -46,6 +46,12 @@
         <div class="row" [routerLink]="'transactions'" *ngIf="isKYC">
           Transactions
         </div>
+        <div class="row" [routerLink]="'pindetail'" *ngIf="isKYC">
+          PIN
+        </div>
+        <div class="row" [routerLink]="'levelincomedetail'" *ngIf="isKYC">
+          Level Income
+        </div>
 
         <div class="row" (click)="logout()">
           Logout

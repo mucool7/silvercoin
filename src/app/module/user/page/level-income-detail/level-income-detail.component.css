@@ -1,0 +1,30 @@
+
+.level-list{
+    padding: 6px 0px;
+}
+
+.level-list .level{
+    display: flex;
+    padding: 6px 0px;
+}
+
+.level-list .level .index{
+    width: 40px;
+}
+
+.level-list .level .content{
+    flex: 1;
+    margin-left: 8px;
+}
+
+.level-list .level .content .level-coin{
+
+    font-weight: bold;
+}
+.level-list .level .content .level-message{
+    
+}
+.level-list .level .content .level-date{
+
+}
+

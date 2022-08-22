@@ -1,0 +1,36 @@
+<h2 mat-dialog-title style="font-family: var(--font-family);margin-bottom: 0px;font-size: 17px;font-weight: bold;">
+    Create Pin</h2>
+<mat-dialog-content>
+    <div class="modal-content">
+
+        <form [formGroup]="form" ngxValidator (ngSubmit)="generatePin()"> 
+
+            <mat-form-field class="example-full-width"  style="width: 100%;" >
+            <mat-label>User Name</mat-label>
+            <input  aria-label="Number" matInput #searchUserText
+                formControlName="user" placeholder="type name .." [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option.Name}}
+                </mat-option>
+            </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width"  style="width: 40%;" >
+                <mat-label>No. Of Pin</mat-label>
+                <input  aria-label="Number" type="number" matInput #searchUserText
+                    formControlName="pinCount" placeholder="" >
+               
+                </mat-form-field>
+
+            <!-- <mat-form-field >
+                <mat-label>sdasd</mat-label>
+                <input matInput  formControlName="user" placeholder="Just a placeholder">
+              </mat-form-field> -->
+              <button mat-flat-button color="primary" style="margin-top: 40px;">Generate</button>
+
+        </form>
+
+
+    </div>
+</mat-dialog-content>
