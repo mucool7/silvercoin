@@ -10,24 +10,45 @@
   
         <div class="pin-list">
             <ng-container *ngIf="!isMaster">
-                <div class="pin" *ngFor="let pin of pins;let i = index">
+                <!-- <div class="pin" *ngFor="let pin of pins;let i = index">
                     <div class="index">{{i+1}}.</div>
                     <div class="pin-no">{{pin.Pin1}}</div>
                     <div class="pin-status" [ngClass]="{'avalb':!pin.AssignedTo }" >{{pin.AssignedTo ? 'Assigned' :'Available' }}</div>
                     <div class="pin-assigned-to">{{pin.AssignedTo ? pin.AssignedTo :'null' }}</div>
-                </div>
+                </div> -->
+                <!-- <ng-template [ngTemplateOutlet]="MsgRef" [ngTemplateOutletContext]="{pins:pins}" ></ng-template> -->
+                <!-- <ng-template [ngTemplateOutlet]="dd;context:{}" [ngTemplateOutletContext]="{data:'test data'}"></ng-template> -->
+
+                <ng-container [ngTemplateOutlet]="MsgRef" [ngTemplateOutletContext]="{pins:pins}" ></ng-container>
             </ng-container>
             <ng-container>
 
-                <div class="master-pin" *ngFor="let master of masterInfo">
+                <ng-container *ngFor="let master of masterInfo">
+                <div class="master-pin" (click)="fetchPins(master);master.show=!master.show" >
                     <div class="name">{{master.Name}}</div>
                     <div class="count">{{master.PinCount}}</div>
                 </div>
-                
+                <ng-container *ngIf="master.show">
+                        <ng-template [ngTemplateOutlet]="MsgRef" [ngTemplateOutletContext]="{pins:master.pins}" ></ng-template>
+                </ng-container>
+            </ng-container>
 
             </ng-container>
            
         </div>
+
+        <ng-template #dd  let-data="data">
+        </ng-template>
+
+        <ng-template #MsgRef let-pins="pins">
+            <div class="pin" *ngFor="let pin of pins;let i = index">
+                <div class="index">{{i+1}}.</div>
+                <div class="pin-no">{{pin.Pin1}}</div>
+                <div class="pin-status" [ngClass]="{'avalb':!pin.AssignedTo }" >{{pin.AssignedTo ? 'Assigned' :'Available' }}</div>
+                <!-- <div class="pin-assigned-to">{{pin.AssignedTo ? pin.AssignedTo :'null' }}</div> -->
+                <div class="pin-assigned-to"></div>
+            </div>
+        </ng-template>
 
     </div>
   

@@ -34,6 +34,12 @@ export class PinComponent implements OnInit {
     })
   }
 
+  fetchPins(master){
+    this._http.get("master/GetPinsByID?registrationNo="+master.RegistrationNo).subscribe(res=>{
+      master.pins = res;
+    })
+  }
+
 
   createPin(){
     const ref = this.matDialoge.open(CreatePinModalComponent,{
