@@ -43,9 +43,9 @@
 
 
         <div class="receipt-box">
-          <img [src]="serverURL+data.ReceiptPath" style="max-height: 200px;">
+          <img [src]="data.ReceiptPath" style="max-height: 200px;">
         </div>
-        <a [href]="serverURL+data.ReceiptPath" [download]="downloadName" >Download Receipt</a>
+        <a [href]="data.ReceiptPath" [download]="downloadName" >Download Receipt</a>
 
         <form [formGroup]="form" ngxValidator (ngSubmit)="onPaymentReceived()" >
 
